@@ -1,1 +1,67 @@
 @import "tailwindcss";
+
+@theme {
+  --color-primary: #0ea5e9;
+  --color-primary-dark: #0284c7;
+  --color-secondary: #22c55e;
+  --color-accent: #f59e0b;
+  --color-danger: #ef4444;
+  --color-governance: #a855f7;
+  --color-infrastructure: #6b7280;
+  
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), monospace;
+}
+
+:root {
+  --primary: #0ea5e9;
+  --primary-dark: #0284c7;
+  --secondary: #22c55e;
+  --accent: #f59e0b;
+  --danger: #ef4444;
+  --governance: #a855f7;
+  --infrastructure: #6b7280;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #374151 #111827;
+}
+
+body {
+  background: linear-gradient(135deg, #0f0f0f 0%, #1a1a2e 100%);
+  min-height: 100vh;
+}
+
+/* Animated gradient background */
+.animated-bg {
+  background: linear-gradient(
+    -45deg,
+    #0f0f0f,
+    #1a1a2e,
+    #0f172a,
+    #1e1b4b
+  );
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Glass morphism */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-hover:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Glow effects */

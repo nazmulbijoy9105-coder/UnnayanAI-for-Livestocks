@@ -13,8 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Next.js Template",
-  description: "A minimal Next.js starter template",
+  title: "UnnayanAI for Livestocks | Smart Dairy AI & IoT Platform",
+  description: "AI-powered dairy farming platform for Bangladesh farmers. Smart monitoring, predictive analytics, and IoT automation for increased milk yield and cattle health.",
+  keywords: ["AI", "Dairy", "Livestock", "IoT", "Smart Farming", "Bangladesh", "Milk Production"],
 };
 
 export default function RootLayout({
@@ -23,9 +24,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        suppressHydrationWarning
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-neutral-950 text-white min-h-screen`}
       >
         {children}
       </body>
