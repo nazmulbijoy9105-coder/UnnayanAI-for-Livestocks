@@ -34,7 +34,7 @@ def read_all_cattle(db: Session = Depends(database.get_db)):
 @app.get("/ai/alert/{cow_id}")
 def get_health_alert(cow_id: int, lang: str = "en"):
     alerts = {
-        "en": "Cow ID {id}: Health is stable. Milk yield up by 5%.",
-        "bn": "গরু আইডি {id}: স্বাস্থ্য স্থিতিশীল। দুধের উৎপাদন ৫% বেড়েছে।"
+        "en": f"Cow ID {cow_id}: Health is stable. Milk yield up by 5%.",
+        "bn": f"গরু আইডি {cow_id}: স্বাস্থ্য স্থিতিশীল। দুধের উৎপাদন ৫% বেড়েছে।"
     }
-    return {"alert": alerts.get(lang, alerts["en"]).format(id=cow_id)}
+    return {"alert": alerts.get(lang, alerts["en"])}
