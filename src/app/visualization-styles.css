@@ -1,0 +1,597 @@
+/**
+ * UnnayanAI Platform Visualization Styles
+ * Premium eco-green theme with white background
+ */
+
+:root {
+  --color-white: #ffffff;
+  --color-light-gray: #f3f4f6;
+  --color-gray: #6b7280;
+  --color-dark-gray: #111827;
+  --color-eco-green: #10b981;
+  --color-eco-dark: #059669;
+  --color-eco-light: #d1fae5;
+  --color-blue: #3b82f6;
+  --color-amber: #f59e0b;
+  --color-red: #ef4444;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ============================================================================
+   MAIN CONTAINER
+   ============================================================================ */
+
+.platform-visualization {
+  background: linear-gradient(to bottom, var(--color-white), var(--color-light-gray));
+  padding: var(--spacing-xl);
+  min-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.platform-header {
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+  padding-bottom: var(--spacing-lg);
+  border-bottom: 3px solid var(--color-eco-green);
+}
+
+.platform-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--color-eco-green);
+  margin-bottom: var(--spacing-md);
+}
+
+.platform-subtitle {
+  font-size: 1.125rem;
+  color: var(--color-gray);
+}
+
+/* ============================================================================
+   METRICS STRIP
+   ============================================================================ */
+
+.metrics-strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-xl);
+}
+
+.metric {
+  background: linear-gradient(135deg, var(--color-eco-light) 0%, rgba(209, 250, 229, 0.3) 100%);
+  padding: var(--spacing-lg);
+  border-radius: 12px;
+  text-align: center;
+  border: 2px solid var(--color-eco-green);
+  transition: var(--transition);
+}
+
+.metric:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(16, 185, 129, 0.2);
+}
+
+.metric-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-eco-green);
+  line-height: 1;
+}
+
+.metric-label {
+  font-size: 0.875rem;
+  color: var(--color-gray);
+  margin-top: var(--spacing-sm);
+  font-weight: 600;
+}
+
+/* ============================================================================
+   TAB NAVIGATION
+   ============================================================================ */
+
+.tab-navigation {
+  display: flex;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-xl);
+  overflow-x: auto;
+  padding-bottom: var(--spacing-md);
+}
+
+.tab-button {
+  padding: var(--spacing-md) var(--spacing-lg);
+  background: var(--color-light-gray);
+  border: 2px solid transparent;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  white-space: nowrap;
+}
+
+.tab-button:hover {
+  background: var(--color-white);
+  border-color: var(--color-eco-green);
+  transform: translateY(-2px);
+}
+
+.tab-button.active {
+  background: var(--color-eco-green);
+  color: var(--color-white);
+  border-color: var(--color-eco-green);
+}
+
+/* ============================================================================
+   TAB CONTENT
+   ============================================================================ */
+
+.tab-content {
+  background: var(--color-white);
+  border-radius: 12px;
+  padding: var(--spacing-xl);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.view {
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================================================
+   ARCHITECTURE VIEW
+   ============================================================================ */
+
+.architecture-view {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+}
+
+.architecture-diagram {
+  border-radius: 12px;
+  padding: var(--spacing-lg);
+  background: var(--color-light-gray);
+}
+
+.diagram-svg {
+  width: 100%;
+  height: auto;
+}
+
+.service-box {
+  fill: var(--color-white);
+  stroke: var(--color-gray);
+  stroke-width: 2;
+  rx: 8;
+  transition: all 0.3s ease;
+}
+
+.service-box:hover {
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+}
+
+.service--gateway {
+  fill: var(--color-blue);
+  stroke: var(--color-blue);
+}
+
+.service--phase1 {
+  fill: #e0f2fe;
+  stroke: var(--color-blue);
+}
+
+.service--phase2 {
+  fill: var(--color-eco-light);
+  stroke: var(--color-eco-green);
+}
+
+.service--database {
+  fill: #e0e7ff;
+  stroke: #6366f1;
+}
+
+.service--frontend {
+  fill: #fce7f3;
+  stroke: #ec4899;
+}
+
+.service-label {
+  font-size: 14px;
+  font-weight: 600;
+  text-anchor: middle;
+  fill: var(--color-dark-gray);
+}
+
+.service-port {
+  font-size: 12px;
+  text-anchor: middle;
+  fill: var(--color-gray);
+}
+
+.service-detail {
+  font-size: 11px;
+  text-anchor: middle;
+  fill: var(--color-gray);
+}
+
+.connection-line {
+  stroke: var(--color-eco-green);
+  stroke-width: 2;
+}
+
+.architecture-legend {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-lg);
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md);
+  background: var(--color-light-gray);
+  border-radius: 8px;
+}
+
+.legend-box {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+}
+
+/* ============================================================================
+   SERVICES VIEW
+   ============================================================================ */
+
+.services-view {
+  padding: 0;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-lg);
+}
+
+.service-card {
+  background: var(--color-white);
+  border: 2px solid var(--color-light-gray);
+  border-radius: 12px;
+  padding: var(--spacing-lg);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.service-card:hover {
+  border-color: var(--color-eco-green);
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.15);
+  transform: translateY(-4px);
+}
+
+.service-card--phase2 {
+  background: linear-gradient(135deg, var(--color-white) 0%, var(--color-eco-light) 100%);
+  border-color: var(--color-eco-green);
+}
+
+.service-card.active {
+  border-color: var(--color-eco-green);
+  background: linear-gradient(135deg, var(--color-white) 0%, var(--color-eco-light) 100%);
+}
+
+.service-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  margin-bottom: var(--spacing-md);
+}
+
+.service-card-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-dark-gray);
+}
+
+.service-status {
+  padding: 4px 8px;
+  background: var(--color-eco-light);
+  color: var(--color-eco-dark);
+  border-radius: 4px;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.service-card-port {
+  display: inline-block;
+  padding: 4px 8px;
+  background: var(--color-light-gray);
+  color: var(--color-dark-gray);
+  border-radius: 4px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: var(--spacing-md);
+}
+
+.service-card-description {
+  color: var(--color-gray);
+  margin-bottom: var(--spacing-md);
+  line-height: 1.6;
+}
+
+.service-card-features {
+  border-top: 1px solid var(--color-light-gray);
+  padding-top: var(--spacing-md);
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    max-height: 0;
+  }
+  to {
+    opacity: 1;
+    max-height: 500px;
+  }
+}
+
+.feature-item {
+  padding: 4px 0;
+  color: var(--color-gray);
+  font-size: 0.875rem;
+}
+
+/* ============================================================================
+   DATA FLOW VIEW
+   ============================================================================ */
+
+.dataflow-view {
+  padding: 0;
+}
+
+.dataflow-steps {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  overflow-x: auto;
+  padding: var(--spacing-lg) 0;
+}
+
+.step {
+  background: linear-gradient(135deg, var(--color-eco-light) 0%, var(--color-white) 100%);
+  border: 2px solid var(--color-eco-green);
+  border-radius: 12px;
+  padding: var(--spacing-lg);
+  min-width: 200px;
+  flex-shrink: 0;
+  position: relative;
+  transition: var(--transition);
+}
+
+.step:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(16, 185, 129, 0.15);
+}
+
+.step-number {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  width: 28px;
+  height: 28px;
+  background: var(--color-eco-green);
+  color: var(--color-white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.875rem;
+}
+
+.step-content h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-dark-gray);
+  margin-bottom: 4px;
+}
+
+.step-content p {
+  font-size: 0.875rem;
+  color: var(--color-gray);
+  margin-bottom: 8px;
+}
+
+.step-icon {
+  font-size: 2rem;
+  text-align: center;
+  margin-top: var(--spacing-md);
+}
+
+.step-arrow {
+  font-size: 2rem;
+  color: var(--color-eco-green);
+  flex-shrink: 0;
+  padding: 0 var(--spacing-sm);
+  font-weight: 700;
+}
+
+/* ============================================================================
+   DASHBOARDS VIEW
+   ============================================================================ */
+
+.dashboards-view {
+  padding: 0;
+}
+
+.dashboards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--spacing-lg);
+}
+
+.dashboard-card {
+  background: var(--color-white);
+  border: 1px solid var(--color-light-gray);
+  border-top: 4px solid var(--color-eco-green);
+  border-radius: 12px;
+  padding: var(--spacing-lg);
+  transition: var(--transition);
+}
+
+.dashboard-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transform: translateY(-4px);
+}
+
+.dashboard-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.75rem;
+  margin-bottom: var(--spacing-md);
+  color: var(--color-white);
+}
+
+.dashboard-name {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--color-dark-gray);
+  margin-bottom: var(--spacing-md);
+}
+
+.dashboard-features {
+  list-style: none;
+  padding: 0;
+}
+
+.dashboard-features li {
+  padding: 4px 0;
+  color: var(--color-gray);
+  font-size: 0.875rem;
+}
+
+/* ============================================================================
+   FEATURES VIEW
+   ============================================================================ */
+
+.features-view {
+  padding: 0;
+}
+
+.features-categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-xl);
+}
+
+.features-category {
+  background: var(--color-light-gray);
+  border-radius: 12px;
+  padding: var(--spacing-lg);
+}
+
+.category-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--color-eco-green);
+  margin-bottom: var(--spacing-md);
+  padding-bottom: var(--spacing-md);
+  border-bottom: 2px solid var(--color-eco-green);
+}
+
+.features-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.feature-row {
+  padding: var(--spacing-sm);
+  color: var(--color-dark-gray);
+  font-size: 0.875rem;
+  background: var(--color-white);
+  border-radius: 6px;
+}
+
+/* ============================================================================
+   RESPONSIVE DESIGN
+   ============================================================================ */
+
+@media (max-width: 768px) {
+  .platform-title {
+    font-size: 1.875rem;
+  }
+
+  .metrics-strip {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .tab-navigation {
+    gap: var(--spacing-sm);
+  }
+
+  .tab-button {
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-size: 0.875rem;
+  }
+
+  .services-grid,
+  .dashboards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .architecture-legend {
+    grid-template-columns: 1fr;
+  }
+
+  .dataflow-steps {
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+
+  .step-arrow {
+    transform: rotate(90deg);
+  }
+}
+
+/* ============================================================================
+   ANIMATIONS
+   ============================================================================ */
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.service-card {
+  animation: slideIn 0.3s ease;
+}
+
+.dashboard-card {
+  animation: slideIn 0.4s ease;
+}
+
