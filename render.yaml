@@ -2,7 +2,6 @@ services:
   - type: web
     name: unnayanai-frontend
     env: node
-    rootDirectory: .
     buildCommand: bun install && bun run build
     startCommand: bun run start
     envVars:
