@@ -2,15 +2,19 @@ services:
   - type: web
     name: unnayanai-frontend
     env: node
-    buildCommand: npm run build
-    startCommand: next start
+    rootDirectory: .
+    buildCommand: bun install && bun run build
+    startCommand: bun run start
+    envVars:
+      - key: NODE_VERSION
+        value: "20"
 
   - type: web
     name: unnayanai-backend
     env: python
+    rootDirectory: backend
     buildCommand: pip install -r requirements.txt
     startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
-    rootDirectory: backend
     envVars:
       - key: LLM_PROVIDER
         value: mock
