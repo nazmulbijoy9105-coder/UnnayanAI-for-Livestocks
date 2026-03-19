@@ -1,27 +1,31 @@
-from fastapi import FastAPI, Depends
+"""
+UnnayanAI Backend - Main FastAPI Application
+Smart Dairy AI & IoT Platform for Bangladesh
+"""
+from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from sqlalchemy.orm import Session
-from . import models, schemas, database
+from app.routers import auth
 
-models.Base.metadata.create_all(bind=database.engine)
-
-app = FastAPI(title="UnnayanAI Smart Dairy Engine")
+app = FastAPI(
+    title="UnnayanAI API",
+    description="Smart Dairy AI & IoT Platform for Bangladesh",
+    version="1.0.0"
+)
 
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
+    allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-@app.get("/")
-def read_root():
-    return {"status": "Online", "engine": "Bun-Runtime", "message": "UnnayanAI is active"}
+app.include_router(auth.router)
 
-@app.get("/ai/alert/{cow_id}")
-def get_alert(cow_id: int, lang: str = "en"):
-    alerts = {
-        "en": f"Cow {cow_id}: Health is stable.",
-        "bn": f"গরু {cow_id}: স্বাস্থ্য স্থিতিশীল।"
-    }
-    return {"alert": alerts.get(lang, alerts["en"])}
+@app.get("/")
+def root():
+    return {"status": "UnnayanAI API running", "version": "1.0.0"}
+
+@app.get("/health")
+def health():
+    return {"status": "healthy"}
