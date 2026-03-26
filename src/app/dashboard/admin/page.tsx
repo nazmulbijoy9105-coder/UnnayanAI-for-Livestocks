@@ -135,7 +135,7 @@ export default function AdminDashboard() {
               {[
                 { name: "Frontend", status: "live", url: "unnayan-ai-for-livestocks.vercel.app" },
                 { name: "Backend API", status: "live", url: "/api/*" },
-                { name: "Database", status: "pending", url: "PostgreSQL — not connected" },
+                { name: "PostgreSQL", status: "live", url: "Render Singapore" },
               ].map(s => (
                 <div key={s.name} className="flex items-center justify-between py-3 border-b border-gray-50 last:border-0">
                   <div>
