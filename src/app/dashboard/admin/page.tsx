@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "https://unnayanai-backend.onrender.com";
+
 
 export default function AdminDashboard() {
   const [user, setUser] = useState<Record<string, string> | null>(null);
