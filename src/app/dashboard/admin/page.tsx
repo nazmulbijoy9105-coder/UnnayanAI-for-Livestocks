@@ -16,7 +16,7 @@ export default function AdminDashboard() {
     const parsed = JSON.parse(u);
     if (parsed.role !== "admin") { window.location.href = `/dashboard/${parsed.role}`; return; }
     setUser(parsed);
-    fetch(`${API_URL}/auth/users`, { headers: { Authorization: `Bearer ${t}` } })
+    fetch("/api/auth?action=users", { headers: { Authorization: `Bearer ${t}` } })
       .then(r => r.json()).then(setUsers).catch(() => {}).finally(() => setLoading(false));
   }, []);
 
@@ -133,8 +133,8 @@ export default function AdminDashboard() {
             <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
               <h3 className="font-bold text-gray-800 mb-4">System Status</h3>
               {[
-                { name: "Frontend", status: "live", url: "unnayanai-for-livestocks.onrender.com" },
-                { name: "Backend API", status: "live", url: "unnayanai-backend.onrender.com" },
+                { name: "Frontend", status: "live", url: "unnayan-ai-for-livestocks.vercel.app" },
+                { name: "Backend API", status: "live", url: "/api/*" },
                 { name: "Database", status: "pending", url: "PostgreSQL — not connected" },
               ].map(s => (
                 <div key={s.name} className="flex items-center justify-between py-3 border-b border-gray-50 last:border-0">
