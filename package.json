@@ -1,1 +1,1 @@
-{"name":"unnayanai-v2","version":"2.0.0","scripts":{"dev":"next dev","build":"next build","start":"next start"},"dependencies":{"@ai-sdk/openai":"^0.0.71","next":"15.0.0-rc.0","react":"^18","zod":"^3.23.8"}}
+{"name":"unnayanai-v2","version":"2.0.0","scripts":{"dev":"next dev","build":"next build"},"dependencies":{"next":"14.2.15","react":"18.3.1","react-dom":"18.3.1"}}
