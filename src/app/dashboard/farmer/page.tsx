@@ -1,3 +1,1 @@
-export default function Dashboard() {
-  return (<div className="p-8"><h1>গবাদি AI Live</h1><pre>{"temp":40} → POST /api/monitor</pre></div>);
-}
+export default()=>(<div style={{padding:'40px',background:'linear-gradient(90deg,#10b981,#3b82f6)'}}><h1 style={{fontSize:'3rem',color:'white'}}>উন্নয়ন গবাদি AI</h1><p>POST /api/monitor {"temp":40} → Live alerts</p></div>);

@@ -1,6 +1,1 @@
-import { NextRequest, NextResponse } from 'next/server';
-export async function POST(req: NextRequest) {
-  const { temp } = await req.json();
-  const risk = temp > 39.5 ? 'high' : 'low';
-  return NextResponse.json({ alert: true, bangla: 'গরুর জ্বর! ভেট ডাকুন', risk });
-}
+export async function POST(req){const{t}=await req.json();return Response.json({alert:t>39.5,bangla:t>39.5?'গরুর জ্বর!':'স্বাভাবিক'});}
